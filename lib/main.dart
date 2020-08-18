@@ -5,8 +5,7 @@ import 'package:provider_image/views/imageSlider.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
-    create: (context) => ImageModel(),
-      child: MyApp()));
+      create: (context) => ImageModel(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: ImageSliders(),
     );
