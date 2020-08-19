@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 class ImageModel with ChangeNotifier {
   int _currentImage = 0;
 
-  int get getImageSlider {
-    return _currentImage;
-  }
+  int get getImageSlider => _currentImage;
 
   void imageSlider(int index) {
     _currentImage = index;
+    if (_currentImage == 0) {
+      _currentImage = 0;
+    } else if (_currentImage > 2) {
+      _currentImage = 2;
+    }
     notifyListeners();
   }
 
@@ -16,8 +19,8 @@ class ImageModel with ChangeNotifier {
     _currentImage -= 1;
     if (_currentImage == 0) {
       _currentImage = 0;
-    } else if (_currentImage < 0) {
-      _currentImage = 2;
+    } else if (_currentImage <= 0) {
+      _currentImage = 0;
     }
     notifyListeners();
   }
@@ -27,7 +30,7 @@ class ImageModel with ChangeNotifier {
     if (_currentImage == 0) {
       _currentImage = 0;
     } else if (_currentImage > 2) {
-      _currentImage = 0;
+      _currentImage = 2;
     }
     notifyListeners();
   }
